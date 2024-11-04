@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CardContext from "../Providers/CardContext/CardContext";
 import emptyCart from "../assets/emptyCart.png";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import ThemeContext from "./Theme/ThemeContext";
+import "aos/dist/aos.css";
 
 const CartItems = () => {
   const { cart, removeCart, updateQuantity } = useContext(CardContext);
@@ -13,7 +14,7 @@ const CartItems = () => {
   const [price, setPrice] = useState("0");
   const [extra, setExtra] = useState(0);
   const [checkedItems, setCheckedItems] = useState({});
-  const [isPopupVisible, setPopupVisible] = useState(false); // Popup visibility state
+  const [isPopupVisible, setPopupVisible] = useState(false); 
 
   const handleRemove = (cardId) => {
     if (checkedItems[cardId]) {
@@ -55,11 +56,15 @@ const CartItems = () => {
   const closePopup = () => {
     setPopupVisible(false); 
   };
+
+  useEffect(() => {
+    AOS.init({ duration: 1000, once:true });
+  }, []);
   
   const { dark} = useContext(ThemeContext)
   return (
     <div className={dark ? "flex justify-center align-middle bg-black ":"flex justify-center align-middle bg-white"}>
-      <div className={dark ? "container w-[95%] shadow-xl mt-20 pt-10 bg-blue-950 text-white" : "container w-[95%] shadow-xl mt-20 pt-10"}>
+      <div className={dark ? "container w-[95%] shadow-xl mt-20 pt-10 bg-blue-950 text-white h-[90vh]" : "container w-[95%] shadow-xl mt-20 pt-10 h-[90vh]"}>
         <div className="cartItems w-[100%] flex">
           <div className="cart px-5 w-[70%] ">
             <h1 className="text-3xl font-bold ">Shopping Cart</h1>
@@ -68,10 +73,10 @@ const CartItems = () => {
               <h4 className="font-bold text-gray-500 text-md mr-[12%]">
                 PRODUCT DETAILS
               </h4>
-              <h4 className="font-bold text-gray-500 text-md">EXTRA</h4>
-              <h4 className="font-bold text-gray-500 text-md">QUANTITY</h4>
-              <h4 className="font-bold text-gray-500 text-md">PRICE</h4>
-              <h4 className="font-bold text-gray-500 text-md">TOTAL</h4>
+              <h4 className="font-bold text-gray-400 text-md">EXTRA</h4>
+              <h4 className="font-bold text-gray-400 text-md">QUANTITY</h4>
+              <h4 className="font-bold text-gray-400 text-md">PRICE</h4>
+              <h4 className="font-bold text-gray-400 text-md">TOTAL</h4>
             </li>
             {cart.length === 0 ? (
               <div className="flex flex-col items-center justify-center">
@@ -85,7 +90,7 @@ const CartItems = () => {
                 <ul>
                   {cart.map((card) => (
                     <li key={card.id}>
-                      <div className={dark ? "bg-blue-950 transition ease-in-out duration-300 text-white flex items-center justify-between py-5 px-2 hover:bg-indigo-700 " : "bg-white transition ease-in-out duration-300 text-black flex items-center justify-between py-5 px-2 hover:bg-green-600"}>
+                      <div data-aos="fade-right" className={dark ? "bg-blue-950 transition ease-in-out duration-300 text-white flex items-center justify-between py-5 px-2 hover:bg-indigo-700 " : "bg-white transition ease-in-out duration-300 text-black flex items-center justify-between py-5 px-2 hover:bg-green-600"}>
                         <span className="flex gap-5">
                           <img className="w-40" src={card.image} alt="" />
                           <span className="flex flex-col justify-between items-start w-[40%]">
@@ -115,7 +120,7 @@ const CartItems = () => {
 
                         <div className="flex items-center gap-2">
                           <button
-                            className="px-2 py-1 bg-gray-200 text-xl"
+                            className={dark ? "px-2 py-1 bg-gray-200 text-blue-900 text-xl" : "px-2 py-1 bg-gray-200 text-xl"}
                             onClick={() =>
                               handleQuantityChange(card.id, "decrement")
                             }
@@ -127,7 +132,7 @@ const CartItems = () => {
                             {card.quantity}
                           </span>
                           <button
-                            className="px-2 py-1 bg-gray-200 text-lg"
+                            className={dark ? "px-2 py-1 bg-gray-200 text-blue-950 text-xl" : "px-2 py-1 bg-gray-200 text-xl"}
                             onClick={() =>
                               handleQuantityChange(card.id, "increment")
                             }
@@ -155,7 +160,7 @@ const CartItems = () => {
             )}
           </div>
 
-          <div className="bill w-[30%] px-10 ">
+          <div  data-aos="fade-left" className="bill w-[30%] px-10 ">
             <h1 className="text-3xl font-bold ">Order Overview</h1>
             <hr className="mt-10"/>  
             <span className="flex justify-between">
@@ -202,7 +207,7 @@ const CartItems = () => {
             </span>
 
             <button
-              className="bg-blue-600 py-3 px-2 text-white font-medium my-3 w-[100%]"
+              className={dark ? "bg-blue-600 py-3 px-2 text-white font-medium my-3 w-[100%] hover:bg-blue-300 hover:text-black": "bg-green-600 py-3 px-2 text-white font-medium my-3 w-[100%] hover:bg-green-300 hover:text-green-900"}
               onClick={handleConfirm} 
             >
               CONFIRM
@@ -218,10 +223,10 @@ const CartItems = () => {
             <h2 className="text-lg font-semibold">Order Confirmed!</h2>
             <p className="mt-2">Thank you for your order. We will process it shortly.</p>
             <button
-              className="mt-4 bg-blue-600 text-white px-4 py-2 rounded"
+              className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-300  hover:text-black"
               onClick={closePopup}
             >
-              Close
+              OKAY
             </button>
           </div>
         </div>

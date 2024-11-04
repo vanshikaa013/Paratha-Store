@@ -8,8 +8,6 @@ import CardContext from "../../Providers/CardContext/CardContext";
 import Why from "../WhyDesiDough/Why";
 import ThemeContext from "../Theme/ThemeContext";
 const Navbar = () => {
-  const [searchOpen, setSearchOpen] = useState(false);
-
   const [showPopup, setShowPopup] = useState(false);
   const { totalQuantity } = useContext(CardContext);
 
@@ -44,9 +42,9 @@ const Navbar = () => {
 
           <ul className="hidden md:flex space-x-6 font-medium">
             <li>
-              <Link to="/" className="hover:text-gray-400">
+              <a href="/" className="hover:text-gray-400">
                 Home
-              </Link>
+              </a>
             </li>
             <li>
               <Link
@@ -83,7 +81,7 @@ const Navbar = () => {
                 <RiShoppingCartLine className="text-xl" />
                 <h5>
                   {totalQuantity > 0 && (
-                    <span className="absolute top-6 right-20 bg-green-600 text-white text-xs rounded-full px-1">
+                    <span className={dark ? "absolute top-6 right-20 bg-white text-black text-xs rounded-full px-1" : "absolute top-6 right-20 bg-green-600 text-white text-xs rounded-full px-1"}>
                       {totalQuantity}
                     </span>
                   )}
@@ -96,14 +94,12 @@ const Navbar = () => {
               <h5>User</h5>
             </button>
 
-           
-
             {showPopup && (
               <Why
                 message="At Desi Dough, we bring you the rich and diverse flavors of traditional Indian cuisine, 
                 carefully crafted to deliver an authentic culinary experience. 
                 Here’s why we stand out from other food delivery services!"
-                onClose={() => setShowPopup(false)} // Allow manual closing
+                onClose={() => setShowPopup(false)}
               />
             )}
           </div>

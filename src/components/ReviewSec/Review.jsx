@@ -2,9 +2,9 @@
 // import AdilSir from "../../assets/adilSir.jpg"
 // import RuchiMam from "../../assets/ruchiMa'am.jpg"
 import Rating from "@mui/material/Rating";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ThemeContext from "../Theme/ThemeContext";
-
+import "aos/dist/aos.css";
 
 
 const reviewData = [
@@ -32,11 +32,14 @@ const reviewData = [
   ];
 
   const ReviewSection = () => {
+    useEffect(() => {
+      AOS.init({ duration: 1000 });
+    }, []);
     const {dark}= useContext(ThemeContext)
     return (
-      <div className={dark ? "py-10 bg-gray-800 text-white" : "py-10 bg-gray-50"}>
+      <div className={dark ? "py-10 bg-gray-800 text-white" : "py-10 bg-gray-50"} >
         <div className="container">
-          <div className="text-center mb-20 max-w-[400px] mx-auto">
+          <div className="text-center mb-20 max-w-[400px] mx-auto" data-aos="fade-right">
             <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
               What our customers say
             </p>
@@ -45,7 +48,7 @@ const reviewData = [
               Discover why our customers love us!
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" data-aos="fade-up-right">
             {reviewData.map((review) => (
               <div key={review.id} className={dark ? "flex flex-col justify-center items-center gap-4 text-center shadow-lg p-4 rounded-xl bg-gray-400 text-black" :"flex flex-col justify-center items-center gap-4 text-center shadow-lg p-4 rounded-xl bg-white"}>
                 <img

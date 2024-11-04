@@ -7,7 +7,7 @@ import ThemeContext from "../Theme/ThemeContext";
 const Footer = () => {
   const {dark} = useContext(ThemeContext)
   return (
-    <footer className={dark ? "bg-gray-500 text-black py-10 px-10": "bg-gray-800 text-white py-10 px-10"}>
+    <footer className={dark ? "bg-gray-700 text-white py-10 px-10": "bg-gray-800 text-white py-10 px-10"}>
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-5">
         
         
@@ -21,14 +21,12 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Navigation Links */}
         <div className={dark ? "flex flex-col md:flex-row gap-5 md:gap-10 text-black-400" :"flex flex-col md:flex-row gap-5 md:gap-10 text-gray-400"}>
           <a href="/" className="hover:text-white">About Us</a>
           <a href="#Menu" className="hover:text-white">Menu</a>
           <a href="/contact" className="hover:text-white">Contact</a>
         </div>
 
-        {/* Social Media Icons */}
         <div className="flex gap-4 mt-6 md:mt-0 text-xl">
           <a target="blank" href="https://www.linkedin.com/in/vanshika-upadhyay-06abb827b/" className={dark ? "text-black-400 hover:text-white" : "text-gray-400 hover:text-white"}>
           <FaLinkedinIn />

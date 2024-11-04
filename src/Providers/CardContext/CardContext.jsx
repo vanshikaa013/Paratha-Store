@@ -83,6 +83,7 @@ export const CardProvider = ({ children }) => {
       )
     );
   };
+  
   const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
 

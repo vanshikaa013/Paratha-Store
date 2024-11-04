@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CardContext from "../../Providers/CardContext/CardContext";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import ThemeContext from "../Theme/ThemeContext";
+import "aos/dist/aos.css";
 // import { ThemeContext } from "../Theme/ThemeContext";
 
 const Cards = ({ card }) => {
@@ -11,9 +12,12 @@ const Cards = ({ card }) => {
   const handleCart = () => {
     addToCart(card);
   };
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
 
   return (
-    <div
+    <div data-aos="fade-up"
       className={`card p-1 flex flex-col items-center justify-center rounded-lg w-[25%] ${
         dark ? "bg-white text-black" : "bg-green-700 text-white"
       }`}

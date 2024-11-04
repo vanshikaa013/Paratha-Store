@@ -14,7 +14,7 @@ const ThemeButton = () => {
     <button
       id="themeButton"
       onClick={handleThemeChange}
-      className={`btn btn-sm flex items-center justify-center ${dark ? "btn-light text-black bg-white" : "btn-dark text-white bg-black"}`}
+      className={`btn btn-sm flex items-center justify-center ${dark ? "btn-light text-black bg-white" : "btn-dark text-white bg-yellow-600"}`}
       aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
     >
       {dark ? <FaSun /> : <FaRegMoon />}
