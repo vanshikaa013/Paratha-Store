@@ -18,7 +18,7 @@ const Cards = ({ card }) => {
 
   return (
     
-    <div data-aos="fade-up"
+    <div 
       className={`card p-5 flex flex-col items-center justify-center rounded-lg w-[22%] ${
         dark ? "bg-white text-black" : "bg-green-700 text-white"
       }`}
