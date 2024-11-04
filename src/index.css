@@ -8,7 +8,12 @@
     padding: 0;
     box-sizing: border-box;
     transition: all , 0.2s ease;
-    
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+  display: none;
 }
 
 #rotate {
@@ -23,6 +28,7 @@
   width: 50px;
   font-size: 19px;
   text-align: center;
+  
 }
  /* #navbar{
   position: fixed;

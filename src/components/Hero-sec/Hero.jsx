@@ -31,7 +31,7 @@ const Hero = () => {
           <a href="#Menu">Order Now</a>
         </button>
       </div>
-      <div className="container w-[50%] flex justify-center items-center" data-aos="fade-left">
+      <div className="container w-[50%] flex justify-center items-center overflow-y-hidden" data-aos="fade-left">
         <img className="w-[90%]" id="rotate" src={HeroImage} alt="Hero Paratha Image" />
       </div>
     </div>

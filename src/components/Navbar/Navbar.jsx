@@ -46,6 +46,12 @@ const Navbar = () => {
                 Home
               </a>
             </li>
+            
+            <li>
+              <a href="#Menu" className="hover:text-gray-400">
+                Menu
+              </a>
+            </li>
             <li>
               <Link
                 to="#"
@@ -54,11 +60,6 @@ const Navbar = () => {
               >
                 Why Desi-Dough?
               </Link>
-            </li>
-            <li>
-              <a href="#Menu" className="hover:text-gray-400">
-                Menu
-              </a>
             </li>
             <li>
               <Link to="" className="hover:text-gray-400">
