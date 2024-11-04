@@ -1,6 +1,5 @@
-import { RiShoppingCartLine } from "react-icons/ri";
 import logoo from "../../assets/logoo.png";
-import { FaRegUser } from "react-icons/fa";
+import { GiShoppingCart } from "react-icons/gi";
 // import CartItems from "../CartItems";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
@@ -77,23 +76,22 @@ const Navbar = () => {
               </span>
               <h5>Search</h5>
             </button> */}
-            <button className=" p-2 rounded-md flex flex-col justify-center items-center  ">
+            <button className="p-2 ">
               <Link to="/Cart">
-                <RiShoppingCartLine className="text-xl" />
+              <GiShoppingCart className="text-3xl"/>
                 <h5>
                   {totalQuantity > 0 && (
-                    <span className={dark ? "absolute top-6 right-20 bg-white text-black text-xs rounded-full px-1" : "absolute top-6 right-20 bg-green-600 text-white text-xs rounded-full px-1"}>
+                    <span className={dark ? "absolute top-5 right-5 bg-white text-black text-xs rounded-full px-1" : "absolute top-5 right-5 bg-green-600 text-white text-xs rounded-full px-1"}>
                       {totalQuantity}
                     </span>
                   )}
-                  Cart
                 </h5>
               </Link>
             </button>
-            <button className=" p-2 rounded-md flex flex-col justify-center items-center ">
+            {/* <button className=" p-2 rounded-md flex flex-col justify-center items-center ">
               <FaRegUser className="text-lg" />
               <h5>User</h5>
-            </button>
+            </button> */}
 
             {showPopup && (
               <Why

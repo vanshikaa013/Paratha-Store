@@ -19,7 +19,7 @@ const Cardsec = () => {
           fresh flavors and love. Dive into our menu and find your perfect
           bite!"
         </p>
-        <div className="container flex flex-wrap gap-10 px-17 justify-center items-center">
+        <div className="container flex flex-wrap gap-20 px-17 justify-center items-center">
           {allCards.map((card) => (
             <Cards key={card.id} card={card} dark={dark} />
           ))}
