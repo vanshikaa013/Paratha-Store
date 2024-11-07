@@ -66,7 +66,7 @@ const CartItems = () => {
     <div className={dark ? "flex justify-center align-middle bg-black ":"flex justify-center align-middle bg-white"}>
       <div className={dark ? "container w-[95%] shadow-xl mt-20 pt-10 bg-blue-950 text-white h-[90vh]" : "container w-[95%] shadow-xl mt-20 pt-10 h-[90vh]"}>
         <div className="cartItems w-[100%] flex">
-          <div className="cart px-5 w-[70%] ">
+          <div className="cart px-5 w-[70%] h-[70vh] overflow-y-auto ">
             <h1 className="text-3xl font-bold ">Shopping Cart</h1>
             <hr className="mt-10"/>  
             <li className="px-3 pt-10 flex justify-between text-sm ">
