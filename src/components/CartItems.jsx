@@ -94,7 +94,7 @@ const CartItems = () => {
             >
               <span className="flex flex-wrap gap-5 w-full md:w-auto">
                 <img className="w-40" src={card.image} alt="" />
-                <span className="flex flex-col justify-between items-start w-[40%]">
+                <span className="flex flex-col justify-between items-start w-[32%]">
                   <h3 className="text-md font-semibold">{card.name}</h3>
                   <button
                     className={dark ? "p-2 text-sm hover:text-blue-950" : "p-2 text-sm hover:text-white"}
@@ -154,7 +154,7 @@ const CartItems = () => {
       {/* Order Overview Section */}
       <div
   data-aos="fade-left"
-  className="bill w-full md:w-[30%] px-5 md:px-10 sticky top-[30%] right-5 md:static md:top-auto md:right-auto"
+  className="bill w-full md:w-[30%] px-5 md:px-10 md:static md:top-auto md:right-auto"
 >
   <h1 className="text-3xl font-bold">Order Overview</h1>
   <hr className="mt-10" />

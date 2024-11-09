@@ -1,4 +1,4 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer, useState, useEffect } from "react";
 import CardReducer from "./CardReducer";
 
 const CardContext = createContext();
@@ -8,46 +8,52 @@ export const CardProvider = ({ children }) => {
     allCards: [
       {
         id: 1,
-        price: 50 ,
-        addOns : "Extra Sauce", 
+        price: 50,
+        addOns: "Extra Sauce",
         name: "Aalo Paratha",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTjm5MgAOZrNdqfsyG2fcCIVbrlprY04JDyw&s",
-        extra : "extra GiSaucepan",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTjm5MgAOZrNdqfsyG2fcCIVbrlprY04JDyw&s",
+        extra: "extra GiSaucepan",
       },
       {
         id: 2,
         price: 60,
-        addOns : " Yogurt, cheese", 
+        addOns: " Yogurt, cheese",
         name: "Plain paratha + Yogurt",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr4SmHCnKJnEgQX1wJi1GjZu2_u-T6TODDCQ&s",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr4SmHCnKJnEgQX1wJi1GjZu2_u-T6TODDCQ&s",
       },
       {
         id: 3,
         price: 60,
-        addOns : "Corn, Cabbage, Fenugreek, Cheese", 
+        addOns: "Corn, Cabbage, Fenugreek, Cheese",
         name: "Veg Paratha",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxlHJ8k71R8JX9Rhn_WdvBRUkz9xRN37CkUg&s",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxlHJ8k71R8JX9Rhn_WdvBRUkz9xRN37CkUg&s",
       },
       {
         id: 4,
         price: 40,
-        addOns : "Extra Sauce, Yogurt, Corn", 
+        addOns: "Extra Sauce, Yogurt, Corn",
         name: "Double Cheese Paratha",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_VmgXjMH8_VJSqnnCTj218RZkNPR-mMjh-Q&s",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_VmgXjMH8_VJSqnnCTj218RZkNPR-mMjh-Q&s",
       },
       {
         id: 5,
         price: 50,
-        addOns : "Extra Sauce, Yogurt", 
+        addOns: "Extra Sauce, Yogurt",
         name: "Corn Cheese Paratha",
-        image: "https://www.cubesnjuliennes.com/wp-content/uploads/2019/02/Peas-Paratha-Recipe-500x375.jpg",
+        image:
+          "https://www.cubesnjuliennes.com/wp-content/uploads/2019/02/Peas-Paratha-Recipe-500x375.jpg",
       },
       {
         id: 6,
         price: 55,
-        addOns :" Extra Sauce,Cheese" ,
+        addOns: " Extra Sauce,Cheese",
         name: "Onion paratha",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa437HxDLNb33RJMS5Ko4XrjW6MLV37BLgOw&s",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa437HxDLNb33RJMS5Ko4XrjW6MLV37BLgOw&s",
       },
     ],
   };
@@ -55,8 +61,18 @@ export const CardProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CardReducer, initialState);
   const [totalQuantity, setTotalQuantity] = useState(0);
 
+  // Load cart from localStorage if available
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
-  const [cart, setCart] = useState([]);
+  // Update localStorage whenever cart changes
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
 
   const addToCart = (card) => {
     setCart((prevCart) => {
@@ -74,7 +90,7 @@ export const CardProvider = ({ children }) => {
   };
 
   const removeCart = (cardId) => {
-    setCart((prevCart) => prevCart.filter(card => card.id !== cardId));
+    setCart((prevCart) => prevCart.filter((card) => card.id !== cardId));
   };
 
   const updateQuantity = (cardId, amount) => {
@@ -86,11 +102,20 @@ export const CardProvider = ({ children }) => {
       )
     );
   };
-  
-
 
   return (
-    <CardContext.Provider value={{ ...state, dispatch  , addToCart , cart, setCart , removeCart , updateQuantity, totalQuantity}}>
+    <CardContext.Provider
+      value={{
+        ...state,
+        dispatch,
+        addToCart,
+        cart,
+        setCart,
+        removeCart,
+        updateQuantity,
+        totalQuantity,
+      }}
+    >
       {children}
     </CardContext.Provider>
   );
