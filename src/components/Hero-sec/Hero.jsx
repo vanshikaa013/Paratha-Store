@@ -12,27 +12,69 @@ const Hero = () => {
   }, []);
 
   return (
-    <div id="hero" className={dark ? "container py-10 mt-20 px-10 flex bg-blue-950" : "container py-10 mt-20 px-10 flex"}>
-      <div className="container w-[65%] px-5"  data-aos="fade-right">
-        <h1 className={dark ? "text-5xl text-white py-8" : "text-5xl py-8"}>
+    <div
+      id="hero"
+      className={`container py-10 mt-20 px-5 lg:px-10 flex flex-col lg:flex-row items-center lg:items-start ${
+        dark ? "bg-blue-950" : ""
+      }`}
+    >
+      <div
+        className="w-full lg:w-[65%] px-5 mb-8 lg:mb-0"
+        data-aos="fade-right"
+      >
+        <h1
+          className={`text-4xl lg:text-5xl ${
+            dark ? "text-white" : ""
+          } py-4 lg:py-8`}
+        >
           "Layers of Flavor,<br /> Crafted with{" "}
-          <span className={dark ? "text-6xl font-bold text-[#69e271]" : "text-6xl font-bold text-[green]"}>
+          <span
+            className={`text-5xl lg:text-6xl font-bold ${
+              dark ? "text-[#69e271]" : "text-[green]"
+            }`}
+          >
             Desi-Dough
           </span>"
         </h1>
-        <p className={dark ? "py-5 text-lg text-white" : "py-5 text-lg"}>
-          Welcome to Desi Dough, where tradition meets flavor in every bite! Our paratha store celebrates the art of crafting authentic,
-          delicious parathas that transport you straight to the heart of homemade, comforting meals.
+        <p
+          className={`py-4 text-base lg:text-lg ${
+            dark ? "text-white" : ""
+          }`}
+        >
+          Welcome to Desi Dough, where tradition meets flavor in every bite!
+          Our paratha store celebrates the art of crafting authentic, delicious
+          parathas that transport you straight to the heart of homemade,
+          comforting meals.
         </p>
-        <p className={dark ? "pb-5 text-lg text-white" : "pb-5 text-lg"}>
-          Each paratha is carefully prepared with fresh, high-quality ingredients and a variety of mouth-watering fillings, from classic aloo and paneer to exciting fusion flavors.
+        <p
+          className={`pb-4 text-base lg:text-lg ${
+            dark ? "text-white" : ""
+          }`}
+        >
+          Each paratha is carefully prepared with fresh, high-quality
+          ingredients and a variety of mouth-watering fillings, from classic
+          aloo and paneer to exciting fusion flavors.
         </p>
-        <button className={dark ? "rounded-3xl bg-green-500 px-3 py-2 text-white hover:bg-green-400" : "rounded-3xl bg-yellow-600 px-3 py-2 text-white hover:bg-yellow-400"}>
+        <button
+          className={`rounded-3xl px-4 py-2 text-white ${
+            dark
+              ? "bg-green-500 hover:bg-green-400"
+              : "bg-yellow-600 hover:bg-yellow-400"
+          }`}
+        >
           <a href="#Menu">Order Now</a>
         </button>
       </div>
-      <div className="container w-[50%] flex justify-center items-center overflow-y-hidden" data-aos="fade-left">
-        <img className="w-[90%]" id="rotate" src={HeroImage} alt="Hero Paratha Image" />
+      <div
+        className="w-full lg:w-[50%] flex justify-center items-center overflow-hidden"
+        data-aos="fade-left"
+      >
+        <img
+          className="w-[80%] lg:w-[90%]"
+          id="rotate"
+          src={HeroImage}
+          alt="Hero Paratha Image"
+        />
       </div>
     </div>
   );

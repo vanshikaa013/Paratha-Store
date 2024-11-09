@@ -53,6 +53,8 @@ export const CardProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(CardReducer, initialState);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+
 
   const [cart, setCart] = useState([]);
 
@@ -65,6 +67,7 @@ export const CardProvider = ({ children }) => {
           item.id === card.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
+        setTotalQuantity(totalQuantity + 1);
         return [...prevCart, { ...card, quantity: 1 }];
       }
     });
@@ -84,7 +87,6 @@ export const CardProvider = ({ children }) => {
     );
   };
   
-  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
 
   return (
