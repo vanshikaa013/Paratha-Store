@@ -13,7 +13,7 @@ const Service = () => {
 
   return (
     <div
-      className={`container p-5 lg:p-10 flex flex-col-reverse lg:flex-row items-center ${
+      className={`p-5 lg:p-10 flex flex-col-reverse lg:flex-row items-center ${
         dark ? "bg-gray-950 text-white" : ""
       }`}
     >

@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className={`container py-10 mt-20 px-5 lg:px-10 flex flex-col lg:flex-row items-center lg:items-start ${
+      className={`py-10 mt-20 px-5 lg:px-10 flex flex-col lg:flex-row items-center lg:items-start ${
         dark ? "bg-blue-950" : ""
       }`}
     >

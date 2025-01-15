@@ -16,7 +16,7 @@ const Cardsec = () => {
   return (
     <div
       id="Menu"
-      className={`container py-10 px-4 lg:px-6 flex flex-col items-center ${
+      className={`py-10 px-4 lg:px-6 flex flex-col items-center ${
         dark ? "bg-black text-white" : ""
       }`}
     >

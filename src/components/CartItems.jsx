@@ -87,7 +87,7 @@ const CartItems = () => {
     <div className="py-10">
       <ul>
         {cart.map((card) => (
-          <li key={card.id}>
+          <li key={card.id}>  
             <div
               data-aos="fade-right"
               className={dark ? "bg-blue-950 transition ease-in-out duration-300 text-white flex items-center justify-between py-5 px-2 hover:bg-indigo-700" : "bg-white transition ease-in-out duration-300 text-black flex items-center justify-between py-5 px-2 hover:bg-green-600"}
