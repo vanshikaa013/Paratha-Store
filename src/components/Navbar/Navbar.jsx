@@ -33,7 +33,7 @@ const Navbar = () => {
             <img src={logoo} alt="Logo" className="h-10 w-10" />
             <a href="/">
               <h1 id="logo-heading" className="text-xl font-bold">
-                Desi-Dough
+                Desi-domain
               </h1>
             </a>
           </div>
