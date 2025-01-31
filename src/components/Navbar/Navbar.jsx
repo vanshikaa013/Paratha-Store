@@ -1,11 +1,11 @@
 import logoo from "../../assets/logoo.png";
 import { GiShoppingCart } from "react-icons/gi";
-// import CartItems from "../CartItems";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CardContext from "../../Providers/CardContext/CardContext";
 import Why from "../WhyDesiDough/Why";
 import ThemeContext from "../Theme/ThemeContext";
+
 const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
   const { totalQuantity } = useContext(CardContext);
@@ -17,35 +17,34 @@ const Navbar = () => {
     }, 5000);
   };
 
-  const {dark} = useContext(ThemeContext)
+  const { dark } = useContext(ThemeContext);
 
   return (
     <>
       <nav
         id="navbar"
-        className={
-          dark
-            ? "fixed top-0 left-0 right-0 bg-gray-900 text-white p-4  z-50"
-            : "fixed top-0 left-0 right-0 bg-white text-black p-4 shadow-lg z-50"
-        }
+        className={`fixed top-0 left-0 right-0 p-4 z-50 ${
+          dark ? "bg-gray-900 text-white" : "bg-white text-black shadow-lg"
+        }`}
       >
         <div className="container mx-auto flex justify-between items-center">
+          {/* Logo Section */}
           <div className="flex items-center space-x-2">
             <img src={logoo} alt="Logo" className="h-10 w-10" />
             <a href="/">
-              <h1 id="logo-heading" className="text-xl font-bold ">
+              <h1 id="logo-heading" className="text-xl font-bold">
                 Desi-Dough
               </h1>
             </a>
           </div>
 
+          {/* Navigation Links */}
           <ul className="hidden md:flex space-x-6 font-medium">
             <li>
               <a href="/" className="hover:text-gray-400">
                 Home
               </a>
             </li>
-            
             <li>
               <a href="#Menu" className="hover:text-gray-400">
                 Menu
@@ -67,31 +66,24 @@ const Navbar = () => {
             </li>
           </ul>
 
+          {/* Icons Section */}
           <div className="flex items-center space-x-6">
-            {/* <button
-              onClick={toggleSearch}
-              className=" flex flex-col justify-center items-center ">
-              <span classNameName="flex">
-                <FaSearch />
-              </span>
-              <h5>Search</h5>
-            </button> */}
-            <button className="p-2 ">
+            <button className="relative p-2">
               <Link to="/Cart">
-              <GiShoppingCart className="text-3xl"/>
-                <h5>
-                  {totalQuantity > 0 && (
-                    <span className={dark ? "absolute top-5 right-5 bg-white text-black text-xs rounded-full px-1" : "absolute top-5 right-5 bg-green-600 text-white text-xs rounded-full px-1"}>
-                      {totalQuantity}
-                    </span>
-                  )}
-                </h5>
+                <GiShoppingCart className="text-3xl" />
+                {totalQuantity > 0 && (
+                  <span
+                    className={`absolute top-0 right-0 text-xs rounded-full px-1 ${
+                      dark
+                        ? "bg-white text-black"
+                        : "bg-green-600 text-white"
+                    }`}
+                  >
+                    {totalQuantity}
+                  </span>
+                )}
               </Link>
             </button>
-            {/* <button className=" p-2 rounded-md flex flex-col justify-center items-center ">
-              <FaRegUser className="text-lg" />
-              <h5>User</h5>
-            </button> */}
 
             {showPopup && (
               <Why
