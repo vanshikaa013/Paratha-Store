@@ -1,4 +1,4 @@
-import logoo from "../../assets/logoo.png";
+import logoo from "../../assets/logoSmoothie.jpg";
 import { GiShoppingCart } from "react-icons/gi";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
