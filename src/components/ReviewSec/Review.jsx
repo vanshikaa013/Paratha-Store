@@ -10,21 +10,21 @@ import "aos/dist/aos.css";
 const reviewData = [
     {
       id: 1,
-      name: "Imran Khan",
+      name: "Ishra Khan",
       text: "The parathas here are truly exceptional! Always served hot, they are packed with a range of flavors that cater to every palate. Each bite is a delightful experience, and the staff are incredibly welcoming.",
       img: "https://media.licdn.com/dms/image/v2/D5603AQEnm7k205SYRw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727163090711?e=1735776000&v=beta&t=po5TM8uA9JXS3jqPFbtqFA-ZGJ5dHqkcy67FpbmHijQ",
       rating: 4,
     },
     {
       id: 2,
-      name: "Adil Khan",
+      name: "Pankaj Bamniya",
       text: "I've tried a lot of parathas, but these are my favorite! Each one is delicious, and you can taste the high-quality ingredients used. I always leave satisfied and eager to come back for more!",
       img: "https://media.licdn.com/dms/image/v2/C4D03AQHyEOnKHIVseg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1656854104200?e=1735776000&v=beta&t=RiE3waJz2bU55NxqHR5po6kDbs4KkbC7EFwJWCxBviI",
       rating: 5,
     },
     {
       id: 3,
-      name: "Ruchi Jain",
+      name: "Vanshika Upadhyay",
       text: "As a paratha lover, I can confidently say that this place is a gem! The parathas are always crispy on the outside and tender on the inside, with just the right amount of spices to elevate every bite. Highly recommend!",
       img: "https://media.licdn.com/dms/image/v2/D4E03AQERMn-9l47osA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1694616658221?e=1735776000&v=beta&t=nzHrRC4eZoFksRpM900O27DRne7G3aNptOWgMac8RbE",
       rating: 5,
@@ -38,7 +38,7 @@ const reviewData = [
     const {dark}= useContext(ThemeContext)
     return (
       <div className={dark ? "py-10 bg-gray-800 text-white" : "py-10 bg-gray-50"} >
-        <div className="container">
+        <div className="">
           <div className="text-center mb-20 max-w-[400px] mx-auto" data-aos="fade-right">
             <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
               What our customers say
